@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import Provider from "./provider";
-
+import Header from "../components/header";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -26,7 +26,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${robotoMono.variable} antialiased`}>
-        <Provider>{children}</Provider>
+        <div className="container mx-auto px-4 max-w-6xl">
+          <Provider>
+            <Header />
+            {children}
+          </Provider>
+        </div>
       </body>
     </html>
   );
